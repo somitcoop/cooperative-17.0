@@ -1,7 +1,7 @@
 {
     "name": "Cooperator Spain Localisation",
     "version": "17.0.1.0.0",
-    "depends": ["cooperator", "l10n_es"],
+    "depends": ["cooperator", "l10n_es", "cooperator_website"],
     "author": "Odoo Community Association (OCA), "
     "Coop IT Easy SC, Coopdevs Treball SCCL",
     "mantainer": "Coopdevs Treball SCCL",

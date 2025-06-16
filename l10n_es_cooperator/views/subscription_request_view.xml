@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="cooperator.subscription_request_view_form" />
         <field name="arch" type="xml">
             <field name="lastname" position="after">
-                <field name="vat" required="is_company is True" />
+                <field name="vat" />
             </field>
             <field name="company_register_number" position="attributes">
                 <attribute name="column_invisible">True</attribute>
