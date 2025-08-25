@@ -10,6 +10,7 @@ from . import account_move_line
 from . import cooperative_membership
 from . import mail_template
 from . import operation_request
+from . import product_category
 from . import product_template
 from . import res_company
 from . import res_partner
