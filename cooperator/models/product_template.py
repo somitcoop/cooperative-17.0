@@ -18,18 +18,11 @@ class ProductTemplate(models.Model):
     by_company = fields.Boolean(string="Can be subscribed by companies?")
     by_individual = fields.Boolean(string="Can be subscribed by individuals?")
     mail_template = fields.Many2one("mail.template", string="Mail template")
-    def _domain_account_income_increase(self):
-        return [
-            ('deprecated', '=', False),
-            ('account_type', '=', 'income'),
-            ('company_id', 'in', [self.env.company.id, False])
-        ]
-
     property_account_income_increase_id = fields.Many2one(
         "account.account",
         company_dependent=True,
         string="Income Account for Share Increase",
-        domain=_domain_account_income_increase,
+        domain="[('deprecated', '=', False), ('account_type', '=', 'income')]",
         help="This account will be used when validating a share increase subscription request instead of the default income account",
     )
 
