@@ -9,13 +9,17 @@ from odoo import fields, models
 class ProductCategory(models.Model):
     _inherit = "product.category"
 
+    def _domain_account_income_increase(self):
+        return [
+            ('deprecated', '=', False),
+            ('account_type', '=', 'income'),
+            ('company_id', 'in', [self.env.company.id, False])
+        ]
+
     property_account_income_increase_categ_id = fields.Many2one(
         "account.account",
         company_dependent=True,
         string="Income Account for Share Increase",
-        domain=[
-            ('deprecated', '=', False),
-            ('company_id', '=', current_company_id)
-        ],
+        domain=_domain_account_income_increase,
         help="This account will be used when validating a share increase subscription request instead of the default income account",
     )
