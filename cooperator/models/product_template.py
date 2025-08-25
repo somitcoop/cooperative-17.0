@@ -21,13 +21,12 @@ class ProductTemplate(models.Model):
     property_account_income_increase_id = fields.Many2one(
         "account.account",
         company_dependent=True,
-        string="Income Account (Share Increase)",
+        string="Income Account for Share Increase",
         domain=[
-            ("account_type", "=", "income"),
-            ("deprecated", "=", False),
+            ('deprecated', '=', False),
+            ('company_id', '=', current_company_id)
         ],
-        help="This account will be used for share increase invoices instead of the generic income account.",
-        groups="account.group_account_readonly",
+        help="This account will be used when validating a share increase subscription request instead of the default income account",
     )
 
     def get_web_share_products(self, is_company):

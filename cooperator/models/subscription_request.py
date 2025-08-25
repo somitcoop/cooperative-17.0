@@ -214,6 +214,7 @@ class SubscriptionRequest(models.Model):
         [
             ("new", "New Cooperator"),
             ("increase", "Increase number of share"),
+            ("increase_remunerated", "Increase number of remunerated share"),
         ],
         default="new",
         readonly=True,
@@ -487,7 +488,7 @@ class SubscriptionRequest(models.Model):
         # when a user is "logged in" to multiple companies.
         product = product.with_company(self.company_id)
 
-        if self.type == "increase":
+        if self.type in ["increase", "increase_remunerated"]:
             account = (
                 product.property_account_income_increase_id
                 or product.categ_id.property_account_income_increase_categ_id
