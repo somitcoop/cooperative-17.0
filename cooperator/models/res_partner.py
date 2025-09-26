@@ -310,3 +310,5 @@ class ResPartner(models.Model):
             return coop_membership.get_share_quantities()
         else:
             return defaultdict(int)
+
+

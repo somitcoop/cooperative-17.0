@@ -142,6 +142,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="lang">{{ object.lang }}</field>
         <field name="auto_delete" eval="True" />
         <field name="is_cooperator_template" eval="True" />
+        <field name="report_template_ids" eval="[(4, ref('cooperator.action_cooperator_report_certificate'))]" />
     </record>
 
     <record id="email_template_share_increase" model="mail.template">
@@ -177,6 +178,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="lang">{{ object.lang }}</field>
         <field name="auto_delete" eval="True" />
         <field name="is_cooperator_template" eval="True" />
+        <field name="report_template_ids" eval="[(4, ref('cooperator.action_cooperator_report_certificate'))]" />
     </record>
 
     <record id="email_template_share_transfer" model="mail.template">
@@ -210,6 +212,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="lang">{{ object.lang }}</field>
         <field name="auto_delete" eval="True" />
         <field name="is_cooperator_template" eval="True" />
+        <field name="report_template_ids" eval="[(4, ref('cooperator.action_cooperator_report_certificate'))]" />
     </record>
 
     <record id="email_template_share_update" model="mail.template">
@@ -243,6 +246,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="lang">{{ object.lang }}</field>
         <field name="auto_delete" eval="True" />
         <field name="is_cooperator_template" eval="True" />
+        <field name="report_template_ids" eval="[(4, ref('cooperator.action_cooperator_report_certificate'))]" />
     </record>
 
     <record id="email_template_share_update_no_shares" model="mail.template">

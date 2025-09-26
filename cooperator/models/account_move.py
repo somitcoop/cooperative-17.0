@@ -60,9 +60,10 @@ class AccountMove(models.Model):
 
     def _send_certificate_mail(self, certificate_email_template, sub_reg_line):
         if self.company_id.send_certificate_email:
-            # we send the email with the certificate in attachment
+            # Send email - certificate will be attached automatically via report_template_ids
             certificate_email_template.sudo().send_mail(
-                self.partner_id.id, email_layout_xmlid="mail.mail_notification_layout"
+                self.partner_id.id, 
+                email_layout_xmlid="mail.mail_notification_layout"
             )
 
     def set_cooperator_effective(self, effective_date):

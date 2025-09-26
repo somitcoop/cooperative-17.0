@@ -300,6 +300,7 @@ class OperationRequest(models.Model):
     ):  # fixme unused argument is used in synergie project. Do not remove.
         if self.company_id.send_share_transfer_email:
             cert_email_template = self._get_share_transfer_mail_template()
+            # Send email - certificate will be attached automatically via report_template_ids
             cert_email_template.send_mail(
                 self.partner_id_to.id,
                 email_layout_xmlid="mail.mail_notification_layout",
@@ -310,8 +311,12 @@ class OperationRequest(models.Model):
     ):  # fixme unused argument is used in synergie project. Do not remove.
         if self.company_id.send_share_update_email:
             cert_email_template = self._get_share_update_mail_template()
+            # Send email - certificate will be attached automatically via report_template_ids
+            # Note: _get_share_update_mail_template() already selects the right template
+            # (with or without certificate) based on whether partner has shares
             cert_email_template.send_mail(
-                self.partner_id.id, email_layout_xmlid="mail.mail_notification_layout"
+                self.partner_id.id, 
+                email_layout_xmlid="mail.mail_notification_layout"
             )
 
     def get_subscription_register_vals(self, effective_date):
